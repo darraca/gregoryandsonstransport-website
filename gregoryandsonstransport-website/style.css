@@ -1,0 +1,114 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+header {
+  background: #333;
+  color: #fff;
+  padding: 1rem 0;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1000px;
+  margin: auto;
+  padding: 0 1rem;
+}
+
+.navbar .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav-links a.active {
+  text-decoration: underline;
+}
+
+.hero {
+  background: url('images/truck.jpg') center/cover no-repeat;
+  color: #fff;
+  text-align: center;
+  padding: 5rem 1rem;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+}
+
+.hero p {
+  margin: 1rem 0;
+}
+
+.btn {
+  background: #e63946;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.content, .contact {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.contact-form button {
+  padding: 0.75rem;
+  background: #333;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.contact-form button:hover {
+  background: #555;
+}
+
+#form-message {
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+footer {
+  background: #333;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+}

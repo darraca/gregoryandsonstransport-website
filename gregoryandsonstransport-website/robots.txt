@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: http://www.gregoryandsonstransport.co.uk/sitemap.xml
