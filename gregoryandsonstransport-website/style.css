@@ -10,21 +10,39 @@ header {
   padding: 1rem 0;
 }
 
+/* Logo styling */
+.logo img {
+  height: 100px;       /* Adjust to fit your logo */
+  width: auto;
+  display: block;
+}
+
+/* Keep nav items aligned with logo */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   max-width: 1000px;
-  margin: auto;
-  padding: 0 1rem;
+  margin: auto; 
+  padding: 10px 20px;
 }
 
-.navbar .logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #fff;
-  text-decoration: none;
-}
+/* .navbar { */
+  /* display: flex; */
+  /* justify-content: space-between; */
+  /* align-items: center; */
+  /* max-width: 1000px; */
+  /* margin: auto; */
+  /* padding: 0 1rem; */
+/* } */
+
+/* .navbar .logo { */
+  /* font-size: 1.5rem; */
+  /* font-weight: bold; */
+  /* color: #fff; */
+  /* text-decoration: none; */
+/* } */
+
 
 .nav-links {
   list-style: none;
