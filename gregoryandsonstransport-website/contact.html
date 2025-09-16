@@ -1,85 +1,79 @@
 <!DOCTYPE html>
+
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact | Gregory and Sons Transport</title>
-  <meta name="description" content="Get in touch for haulage quotes and transport enquiries. Reliable and professional service across the UK.">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <header>
-    <nav class="navbar">
-      <!-- <a href="index.html" class="logo">Gregory and Sons Transport</a> -->
-	  <div class="logo">
-		<a href="index.html">
-			<img src="images/logo.png" alt="Company Logo">
-		</a>
-	  </div>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="contact.html" class="active">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+	<head>
+		<meta charset="utf-8"/>
+		<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+		<title>Contact | Gregory and Sons Transport</title>
+		<meta name="description" content="Get in touch for haulage quotes and transport enquiries. Reliable and professional service across the UK."/>
+		<link href="style.css" rel="stylesheet"/>
+	</head>
+	<body>
+		<header>
+			<nav class="navbar">
+				<div class="logo">
+					<a href="index.html">
+						<img alt="Company Logo" src="images/logo.png"/>
+					</a>
+				</div>
+				<ul class="nav-links">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="about.html">About Us</a></li>
+					<li><a href="contact.html">Contact</a></li>
+				</ul>
+			</nav>
+		</header>
 
-  <section class="contact">
-    <h2>Contact Us</h2>
-    <p>Fill out the form below and we’ll get back to you shortly.</p>
 
-    <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="contact-form">
-      <label for="name">Name</label>
-      <input type="text" id="name" name="name" required>
+		<section class="contact">
+			<h2>Contact Us</h2>
+			<p>Fill out the form below and we’ll get back to you shortly.</p>
+			<form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" class="contact-form" method="POST">
+				<label for="name">Name</label>
+				<input id="name" name="name" required="" type="text"/>
+				<label for="email">Email</label>
+				<input id="email" name="_replyto" required="" type="email"/>
+				<label for="message">Message</label>
+				<textarea id="message" name="message" required="" rows="5"></textarea>
+				<button type="submit">Send Message</button>
+			</form>
+			<div id="form-message"></div>
+		</section>
+		<footer>
+			<p>&copy; 2025 Gregory and Sons Transport. All rights reserved.</p>
+		</footer>
+		<script>
+			document.addEventListener("DOMContentLoaded", function () {
+				const form = document.getElementById("contact-form");
+				const messageBox = document.getElementById("form-message");
 
-      <label for="email">Email</label>
-      <input type="email" id="email" name="_replyto" required>
+				form.addEventListener("submit", async function (e) {
+				  e.preventDefault();
+				  messageBox.textContent = "";
+				  messageBox.style.color = "";
 
-      <label for="message">Message</label>
-      <textarea id="message" name="message" rows="5" required></textarea>
+				  const formData = new FormData(form);
+				  try {
+					const response = await fetch(form.action, {
+					  method: form.method,
+					  body: formData,
+					  headers: { 'Accept': 'application/json' }
+					});
 
-      <button type="submit">Send Message</button>
-    </form>
-
-    <div id="form-message"></div>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 Gregory and Sons Transport. All rights reserved.</p>
-  </footer>
-
-  <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const form = document.getElementById("contact-form");
-    const messageBox = document.getElementById("form-message");
-
-    form.addEventListener("submit", async function (e) {
-      e.preventDefault();
-      messageBox.textContent = "";
-      messageBox.style.color = "";
-
-      const formData = new FormData(form);
-      try {
-        const response = await fetch(form.action, {
-          method: form.method,
-          body: formData,
-          headers: { 'Accept': 'application/json' }
-        });
-
-        if (response.ok) {
-          messageBox.textContent = "✅ Message sent successfully!";
-          messageBox.style.color = "green";
-          form.reset();
-        } else {
-          messageBox.textContent = "❌ Oops! Something went wrong. Please try again.";
-          messageBox.style.color = "red";
-        }
-      } catch (error) {
-        messageBox.textContent = "⚠️ Network error. Please check your connection.";
-        messageBox.style.color = "orange";
-      }
-    });
-  });
-  </script>
-</body>
+					if (response.ok) {
+					  messageBox.textContent = "✅ Message sent successfully!";
+					  messageBox.style.color = "green";
+					  form.reset();
+					} else {
+					  messageBox.textContent = "❌ Oops! Something went wrong. Please try again.";
+					  messageBox.style.color = "red";
+					}
+				  } catch (error) {
+					messageBox.textContent = "⚠️ Network error. Please check your connection.";
+					messageBox.style.color = "orange";
+				  }
+				});
+			});
+		</script>
+	</body>
 </html>
